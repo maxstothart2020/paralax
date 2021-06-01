@@ -8,98 +8,119 @@
 }
 
 body {
-  margin: 0;
+  background-color: #f1f1f1;
+  padding: 20px;
   font-family: Arial;
 }
 
-/* The grid: Four equal columns that floats next to each other */
+/* Center website */
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+
+.row {
+  margin: 8px -16px;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Create four equal columns that floats next to each other */
 .column {
   float: left;
   width: 25%;
-  padding: 10px;
 }
 
-/* Style the images inside the grid */
-.column img {
-  opacity: 0.8; 
-  cursor: pointer; 
-}
-
-.column img:hover {
-  opacity: 1;
-}
-
-/* Clear floats after the columns */
+/* Clear floats after rows */ 
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* The expanding image container */
-.container {
-  position: relative;
-  display: none;
+/* Content */
+.content {
+  background-color: white;
+  padding: 10px;
 }
 
-/* Expanding image text */
-#imgtext {
-  position: absolute;
-  bottom: 15px;
-  left: 15px;
-  color: white;
-  font-size: 20px;
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 900px) {
+  .column {
+    width: 50%;
+  }
 }
 
-/* Closable button inside the expanded image */
-.closebtn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  color: white;
-  font-size: 35px;
-  cursor: pointer;
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
 }
 </style>
 </head>
 <body>
 
-<div style="text-align:center">
-  <h2>Tabbed Image Gallery</h2>
-  <p>Click on the images below:</p>
-</div>
+<!-- MAIN (Center website) -->
+<div class="main">
 
-<!-- The four columns -->
+<h1>MYLOGO.COM</h1>
+<hr>
+
+<h2>PORTFOLIO</h2>
+<p>Resize the browser window to see the responsive effect.</p>
+
+<!-- Portfolio Gallery Grid -->
 <div class="row">
   <div class="column">
-    <img src="/paralax/sales/items/Premature_Baby_Cardy.jpg" alt="Premature Baby Cardy" style="width:100%" onclick="myFunction(this);">
+    <div class="content">
+      <img src="/w3images/mountains.jpg" alt="Mountains" style="width:100%">
+      <h3>My Work</h3>
+      <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+    </div>
   </div>
   <div class="column">
-    <img src="img_snow.jpg" alt="Snow" style="width:100%" onclick="myFunction(this);">
+    <div class="content">
+    <img src="/w3images/lights.jpg" alt="Lights" style="width:100%">
+      <h3>My Work</h3>
+      <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+    </div>
   </div>
   <div class="column">
-    <img src="img_mountains.jpg" alt="Mountains" style="width:100%" onclick="myFunction(this);">
+    <div class="content">
+    <img src="/w3images/nature.jpg" alt="Nature" style="width:100%">
+      <h3>My Work</h3>
+      <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+    </div>
   </div>
   <div class="column">
-    <img src="img_lights.jpg" alt="Lights" style="width:100%" onclick="myFunction(this);">
+    <div class="content">
+    <img src="/w3images/mountains.jpg" alt="Mountains" style="width:100%">
+      <h3>My Work</h3>
+      <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+    </div>
   </div>
+<!-- END GRID -->
 </div>
 
-<div class="container">
-  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-  <img id="expandedImg" style="width:100%">
-  <div id="imgtext"></div>
+<div class="content">
+  <img src="/w3images/p3.jpg" alt="Bear" style="width:100%">
+  <h3>Some Other Work</h3>
+  <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+  <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
 </div>
 
-<script>
-function myFunction(imgs) {
-  var expandImg = document.getElementById("expandedImg");
-  var imgText = document.getElementById("imgtext");
-  expandImg.src = imgs.src;
-  imgText.innerHTML = imgs.alt;
-  expandImg.parentElement.style.display = "block";
-}
-</script>
+<!-- END MAIN -->
+</div>
 
 </body>
 </html>
